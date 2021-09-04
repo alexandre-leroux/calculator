@@ -1,0 +1,20 @@
+
+
+
+.containeur_containeurs_boutton{
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: center;
+}
+.containeur_boutton{
+    /* background-color: black; */
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.number_boutton{
+    width: 50px;
+    height: 50px;
+}
