@@ -1,14 +1,25 @@
+import React from "react"
 
-function BeautifullScreen() {
-return (
+class BeautifullScreen extends React.Component{
 
-    <div className='containeur_containeurs_boutton'>
-        <div className='containeur_boutton'>
-            <div className='mon_ecran'>0</div>
+
+
+render(){
+
+    return (
+
+        <div className='containeur_containeurs_boutton'>
+            <div className='containeur_boutton'>
+                <div className='mon_ecran'>{this.props.valuedefault}</div>
+
+            </div>
         </div>
-    </div>
+    )
+}
 
-)
+
+
+
 
 } 
 

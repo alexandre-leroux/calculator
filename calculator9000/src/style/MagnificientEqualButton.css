@@ -1,5 +1,10 @@
 
 .boutton_egal{
-    width: 300px;
+    width: 100px;
+    height: 37px;
+}
+
+.boutton_del{
+    width: 50px;
     height: 37px;
 }

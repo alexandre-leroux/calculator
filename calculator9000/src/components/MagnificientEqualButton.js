@@ -5,6 +5,7 @@ function MagnificientEqualButton() {
         <div className='containeur_containeurs_boutton'>
         <div className='containeur_boutton'>
                 
+               <button className='boutton_del'>del</button>
                <button className='boutton_egal'>=</button>
      
             </div>

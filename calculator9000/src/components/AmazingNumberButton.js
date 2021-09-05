@@ -1,5 +1,19 @@
+import React from "react"
 
-function AmazingNumberButton() {
+class AmazingNumberButton extends React.Component {
+
+
+
+
+    affiche = ()=>{
+
+        this.props.afficheNumberHandler()
+        // console.log('ok')
+    }
+
+
+
+    render(){
     return (
     
         <div className='containeur_containeurs_boutton'>
@@ -9,7 +23,7 @@ function AmazingNumberButton() {
                <button className='number_boutton'>2</button>
                <button className='number_boutton'>3</button>
                <button className='number_boutton'>4</button>
-               <button className='number_boutton'>5</button>
+               <button onClick={this.affiche} className='number_boutton'>5</button>
                <button className='number_boutton'>6</button>
                <button className='number_boutton'>7</button>
                <button className='number_boutton'>8</button>
@@ -19,7 +33,7 @@ function AmazingNumberButton() {
             </div>
         </div>
     
-    )
+    )}
     
     } 
     
