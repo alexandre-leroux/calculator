@@ -1,7 +1,7 @@
 
 function Thetitle() {
     return (
-      <h1>
+      <h1 id='thetitle'>
       Calculator 9000
     </h1>
     );

@@ -1,11 +1,10 @@
 
 import '../App.css';
 import '../style/AmazingNumberButton.css';
-import '../style/GreatOperationButton.css';
-import '../style/BeautifullScreen.css';
-import '../style/MagnificientEqualButton.css';
+// import '../style/GreatOperationButton.css';
+// import '../style/BeautifullScreen.css';
+// import '../style/MagnificientEqualButton.css';
 import TheTitle from './TheTitle'
-// import MagnificientEqualButton from './MagnificientEqualButton'
 import React from 'react';
 
 
@@ -32,14 +31,7 @@ class AmazingNumberButton extends React.Component {
       }
   }
 
-  egal(){
 
-    const calcul = this.state.value
-    const result = eval(calcul)
-    this.setState({value: result})
-    this.setState({egal: 1})
-  
-  }
 
   handleClick(i) {
 
@@ -50,29 +42,31 @@ class AmazingNumberButton extends React.Component {
       var number = i;
       var n = number.toString();
       this.setState({value:  n});
-      console.log('dans if 0')
-      u++
     }
     else if(checkegal === 1){
       var number = i;
       var n = number.toString();
       this.setState({value:  n});
       this.setState({egal:  0});
-      console.log('dans if 12')
-      u++
     }
     else {
       var number = i;
       var n = number.toString();
       this.setState({value: this.state.value + n});
-      console.log('dans else')
     }
   }
+
 
   zero(){
     this.setState({value:'0'});
   }
 
+  egal(){
+    const calcul = this.state.value
+    const result = eval(calcul)
+    this.setState({value: result})
+    this.setState({egal: 1})
+  }
 
   BeautifullScreen(i) {
       return <BeautifullScreen 
@@ -84,7 +78,6 @@ class AmazingNumberButton extends React.Component {
   AmazingNumberButton(){
 
     return  <div className='containeur_boutton'>
-                <button className='number_boutton'  onClick={() => this.handleClick(0)}>0</button>
                 <button className='number_boutton'  onClick={() => this.handleClick(1)}>1</button>
                 <button className='number_boutton'  onClick={() => this.handleClick(2)}>2</button>
                 <button className='number_boutton'  onClick={() => this.handleClick(3)}>3</button>
@@ -94,6 +87,7 @@ class AmazingNumberButton extends React.Component {
                 <button className='number_boutton'  onClick={() => this.handleClick(7)}>7</button>
                 <button className='number_boutton'  onClick={() => this.handleClick(8)}>8</button>
                 <button className='number_boutton'  onClick={() => this.handleClick(9)}>9</button>
+                <button className='number_boutton' id='boutton0'  onClick={() => this.handleClick(0)}>0</button>
                 <button className='number_boutton'  onClick={() => this.handleClick('.')}>.</button>
               </div>
     }
@@ -136,16 +130,13 @@ MagnificientEqualButton() {
   return (
   
       <div className='containeur_containeurs_boutton'>
-          <div>
+          <div className='calculette'>
             {this.BeautifullScreen()}
-          </div>
-          <div>
+      
             {this.AmazingNumberButton()}
-          </div>
-          <div>
+        
             {this.GreatOperationButton()}
-          </div>
-          <div>
+        
             {this.MagnificientEqualButton()}
           </div>
       </div>
