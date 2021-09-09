@@ -1,9 +1,6 @@
 
 import '../App.css';
 import '../style/AmazingNumberButton.css';
-// import '../style/GreatOperationButton.css';
-// import '../style/BeautifullScreen.css';
-// import '../style/MagnificientEqualButton.css';
 import TheTitle from './TheTitle'
 import React from 'react';
 
@@ -19,6 +16,14 @@ function BeautifullScreen(props){
       )
 } 
 
+function ItSOverNineThousand(props){
+      return (
+          <div className='ItSOverNineThousand'>
+              <p>{props.value}</p>
+          </div>
+      )
+} 
+
 
 
 class AmazingNumberButton extends React.Component {
@@ -27,25 +32,28 @@ class AmazingNumberButton extends React.Component {
       super(props);
       this.state={
           value: '0',
-          egal: 0
+          egal: 0,
+          over9000: null
       }
   }
 
 
-
+// ----------------fonctions calculette
   handleClick(i) {
 
-    let u = this.state.value
+    let valeur = this.state.value
     let checkegal = this.state.egal
 
-    if(u === '0'){
+    if(valeur === '0'){
       var number = i;
       var n = number.toString();
       this.setState({value:  n});
+      this.setState({over9000:null});
     }
     else if(checkegal === 1){
       var number = i;
       var n = number.toString();
+      this.setState({over9000:null});
       this.setState({value:  n});
       this.setState({egal:  0});
     }
@@ -59,6 +67,8 @@ class AmazingNumberButton extends React.Component {
 
   zero(){
     this.setState({value:'0'});
+    this.setState({over9000:null});
+    this.setState({egal:  0});
   }
 
   egal(){
@@ -66,12 +76,28 @@ class AmazingNumberButton extends React.Component {
     const result = eval(calcul)
     this.setState({value: result})
     this.setState({egal: 1})
+
+    if(result > 9000){
+      this.setState({over9000: 'It’s Over 9000'})
+    }
   }
+
+
+
+
+
+  // ---------------------------composants calculette
 
   BeautifullScreen(i) {
       return <BeautifullScreen 
                 value={this.state.value}
                 onClick={() => this.handleClick(i)}
+            />;
+    }
+
+  ItSOverNineThousand(i) {
+      return <ItSOverNineThousand 
+                value={this.state.over9000}
             />;
     }
 
@@ -138,6 +164,11 @@ MagnificientEqualButton() {
             {this.GreatOperationButton()}
         
             {this.MagnificientEqualButton()}
+
+          </div>
+          
+          <div>
+            {this.ItSOverNineThousand()}
           </div>
       </div>
   
