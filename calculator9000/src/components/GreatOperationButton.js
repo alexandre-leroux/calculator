@@ -17,4 +17,3 @@ function GreatOperationButton() {
     
     } 
     
-    export default GreatOperationButton
