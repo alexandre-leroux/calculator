@@ -73,13 +73,22 @@ class AmazingNumberButton extends React.Component {
 
   egal(){
     const calcul = this.state.value
-    const result = eval(calcul)
-    this.setState({value: result})
-    this.setState({egal: 1})
+    var last = calcul.substr(-1);
+    console.log(last)
+    if(last === '+' || last === '-' || last === '*' || last === '/' || last === undefined)
+    {this.state.value = this.state.value}
 
-    if(result > 9000){
-      this.setState({over9000: 'It’s Over 9000'})
+    else{
+      const result = eval(calcul)
+      this.setState({value: result})
+      this.setState({egal: 1})
+  
+      if(result > 9000){
+        this.setState({over9000: 'It’s Over 9000'})
+      }
+
     }
+
   }
 
 
