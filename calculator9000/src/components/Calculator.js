@@ -13,18 +13,10 @@ import React, { useState } from 'react';
   // } 
 
 
-function BeautifullScreen(valeurInitiale){
 
-  const [valeur, setValeur] = useState(valeurInitiale = 8)
-  console.log(valeur)
-      return (
-          <div className='containeur_containeurs_boutton'>
-              <div className='containeur_boutton'>
-                  <div id="ecran" className='mon_ecran'>{valeur}</div>
-              </div>
-          </div>
-      )
-} 
+
+
+
 
 function TouchNumber () {
 
@@ -36,10 +28,70 @@ function TouchNumber () {
 
 }
 
+
+
+
+
+
+
+function BeautifullScreen({chiffre}){
+
+      return (
+          <div className='containeur_containeurs_boutton'>
+              <div className='containeur_boutton'>
+                  <div id="ecran" className='mon_ecran'>{chiffre}</div>
+              </div>
+          </div>
+      )
+} 
+
+
+
+function ChiffreAffiche(){
+
+  const [chiffre, setChiffre] = useState('0')
+
+  const affichage = function (a) {
+    setChiffre(c => c + a)
+  }
+
+  return [chiffre, affichage]
+}
+
+
 function TouchOperation () {
 
+  const [chiffre, affichage] = ChiffreAffiche()
+
+  const handleClick = function(a){
+    affichage(a)
+  }
+
   var operateurs = ['/', '*', '-', '+'];
-  const bouttonOperateur = operateurs.map(c => <button className='number_boutton'>{c}</button>)
+  const BouttonOperateur = operateurs.map(a => <button onClick={()=>{handleClick(a)}} key={a.toString()} className='number_boutton'>{a}</button>)
+
+  return <div>
+    <BeautifullScreen chiffre={chiffre}></BeautifullScreen>
+    {BouttonOperateur}
+
+  </div>
+
+
+}
+
+
+
+
+
+
+
+
+
+
+function TouchEgal () {
+
+  var egal = ['=', 'DEL'];
+  const bouttonOperateur = egal.map(c => <button key={c.toString()} className='number_boutton'>{c}</button>)
   return bouttonOperateur;
 
 }
@@ -47,10 +99,9 @@ function TouchOperation () {
 function Calculator () {
 
   return <div>
-    <BeautifullScreen/>
     <TouchNumber/>
     <TouchOperation/>
-
+    <TouchEgal/>
   </div>
 
 
