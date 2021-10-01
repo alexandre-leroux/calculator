@@ -33,14 +33,24 @@ function TouchOperation ({chiffre, setChiffre}) {
 
 function TouchNumber ({chiffre, setChiffre}) {
 
-
-
   var bouttonChiffre = [];
   for (var i = 0; i < 10; i++) {
     bouttonChiffre.push(<button onClick={(e)=>setChiffre(chiffre + e.target.innerHTML)} className='number_boutton' key={i}>{i}</button>);
   }
   return bouttonChiffre;
 
+}
+
+function TouchEgal ({chiffre, setChiffre}){
+
+  var operateursEgal = ['=', 'DEL'];
+  const operateursEgaldel = operateursEgal.map((a,index) => <button onClick={()=>setChiffre(chiffre + a)} key={`${a}-${index}`} className='number_boutton'>{a}</button>)
+
+  return <div>
+    
+    {operateursEgaldel}
+
+  </div>
 }
 
 function Calculator () {
@@ -51,6 +61,7 @@ function Calculator () {
     <BeautifullScreen chiffre={chiffre} setChiffre={setChiffre}/>
     <TouchOperation chiffre={chiffre} setChiffre={setChiffre}/>
     <TouchNumber chiffre={chiffre} setChiffre={setChiffre}/>
+    <TouchEgal chiffre={chiffre} setChiffre={setChiffre}/>
   </div>
 
 
