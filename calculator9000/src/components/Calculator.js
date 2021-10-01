@@ -41,10 +41,19 @@ function TouchNumber ({chiffre, setChiffre}) {
 
 }
 
+
+function egalDel (chiffre, setChiffre) {
+
+  console.log(chiffre)
+  const result = eval(chiffre)
+  setChiffre(result)
+ 
+}
+
 function TouchEgal ({chiffre, setChiffre}){
 
   var operateursEgal = ['=', 'DEL'];
-  const operateursEgaldel = operateursEgal.map((a,index) => <button onClick={()=>setChiffre(chiffre + a)} key={`${a}-${index}`} className='number_boutton'>{a}</button>)
+  const operateursEgaldel = operateursEgal.map((a,index) => <button onClick={()=>egalDel(chiffre, setChiffre)} key={`${a}-${index}`} className='number_boutton'>{a}</button>)
 
   return <div>
     
